@@ -15,32 +15,89 @@
 
         function playRound(playerSelection,computerSelection)
         {
-            if(playerSelection===computerSelection) return 0;
+            let convertedSelection = playerSelection.toLowerCase();
+            // console.log(computerSelection);
+            // console.log(convertedSelection);
 
-            else if(playerSelection==="paper" && computerSelection==="rock") return 1;
 
-            else if(playerSelection==="paper" && computerSelection==="scissor") return 2;
+            if(convertedSelection===computerSelection) return 0;
 
-            else if(playerSelection==="rock" && computerSelection==="paper") return 2;
+            else if(convertedSelection==="paper" && computerSelection==="rock") return 1;
 
-            else if(playerSelection==="rock" && computerSelection==="scissor") return 1;
+            else if(convertedSelection==="paper" && computerSelection==="scissor") return 2;
 
-            else if(playerSelection==="scissor" && computerSelection==="paper") return 1;
+            else if(convertedSelection==="rock" && computerSelection==="paper") return 2;
 
-            else if(playerSelection==="scissor" && computerSelection==="rock") return 2;
+            else if(convertedSelection==="rock" && computerSelection==="scissor") return 1;
 
-            else return 4;
+            else if(convertedSelection==="scissor" && computerSelection==="paper") return 1;
+
+            else if(convertedSelection==="scissor" && computerSelection==="rock") return 2;
+
+            else return 3;
         }
 
-        let playerMove = prompt("Whats your move?");
-
+        
         function computerPlay()
         {
             let randomIndex = Math.floor(Math.random()*3);
             return moves[randomIndex];
         }
         
-        console.log(computerPlay());
+
+        function game()
+        {
+            let playerScore=0,computerScore=0;
+            for (let i=0;i<5;i++)
+            {
+                let playerMove = prompt("Whats your move?");
+                let computerMove = computerPlay();
+
+                let result = playRound(playerMove,computerMove);
+
+                if(result===0)
+                {
+                    console.log("Its a Tie!");
+                }
+
+                else if(result===1)
+                {
+                    console.log(`You Won! ${playerMove} beats ${computerMove}`);
+                    playerScore++;
+                }
+
+                else if(result==2)
+                {
+                    console.log(`You Lose! ${computerMove} beats ${playerMove}`);
+                    computerScore++;
+
+                }
+
+                else
+                {
+                    console.log("Enter correct choice");
+
+                }
+                console.log(i);
+            }
+            
+            if(playerScore>computerScore)
+            {
+                console.log("Player Won!!");
+            }
+            else if(playerScore<computerScore)
+            {
+                console.log("Computer Won!!");
+            }
+            else
+            {
+                console.log("Its a Tie!!");
+            }
+        }
+
+        game();
+        // console.log(computerPlay());
+        // console.log(playRound(playerMove,computerPlay()));
 
     </script>
     
