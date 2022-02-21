@@ -1,0 +1,37 @@
+body,html{
+    padding: 0;
+    margin: 0;
+    background-color: aquamarine;
+}
+
+body{
+    display: flex;
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+    /* border: red 1px solid; */
+    height: 100vh;
+    width: 100vw;
+    flex-direction: column;
+    /* gap: 40px; */
+}
+
+
+/* div{
+    margin: 40px;
+} */
+
+button{
+    padding: 40px;
+    border: 2px solid black;
+    border-radius: 20%;
+    /* color: burlywood; */
+    font-weight: bold;
+    font-size: medium;
+    margin: 40px;
+}
+
+.header{
+    font-weight: bold;
+    font-size: 40px;
+}
